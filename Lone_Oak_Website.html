@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5705 Lone Oak Drive, Bethesda MD 20814 - Mike Burns Real Estate</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #1B3A5C 0%, #2d5a8c 50%, #6A98BC 100%);
+            min-height: 100vh;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* ========== SECTION 1: HEADER & HERO ========== */
+        .hero-section {
+            margin-bottom: 30px;
+        }
+
+        .address-header {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .address-header h1 {
+            font-size: 42px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .address-header p {
+            font-size: 13px;
+            letter-spacing: 1.5px;
+            color: rgba(255, 255, 255, 0.8);
+            text-transform: uppercase;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 450px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ========== FAST DETAILS ========== */
+        .fast-details {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .fast-details ul {
+            list-style: none;
+        }
+
+        .fast-details li {
+            padding: 12px 0;
+            font-size: 18px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-weight: 600;
+        }
+
+        .fast-details li:last-child {
+            border-bottom: none;
+        }
+
+        .fast-details li:before {
+            content: "✓ ";
+            color: #4ade80;
+            font-weight: 700;
+            margin-right: 10px;
+        }
+
+        /* ========== SPECS BAR ========== */
+        .specs-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .spec-item {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .spec-item .value {
+            font-size: 28px;
+            font-weight: 700;
+            color: #4ade80;
+            margin-bottom: 5px;
+        }
+
+        .spec-item .label {
+            font-size: 11px;
+            letter-spacing: 1.2px;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+        }
+
+        /* ========== FULL DESCRIPTION ========== */
+        .description-section {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 35px;
+            margin-bottom: 40px;
+        }
+
+        .description-section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .description-section p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 15px;
+        }
+
+        /* ========== PHOTO GALLERIES ========== */
+        .gallery-section {
+            margin-bottom: 40px;
+        }
+
+        .gallery-title {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .gallery-item {
+            width: 100%;
+            height: 280px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* 2 Columns - 5 each */
+        .gallery-2col {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .gallery-2col .gallery-item {
+            height: 240px;
+        }
+
+        /* ========== ACTION BUTTONS ========== */
+        .action-buttons {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 40px;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .action-btn {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .action-btn:hover {
+            background: rgba(255, 255, 255, 0.18);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ========== AGENT CONTACT FOOTER ========== */
+        .agent-section {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 60px 50px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .agent-section .name {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+        }
+
+        .agent-section .brokerage {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-bottom: 25px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contact-info p,
+        .contact-info a {
+            font-size: 28px;
+            font-weight: 700;
+            color: #4ade80;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .address-header h1 {
+                font-size: 32px;
+            }
+
+            .specs-bar {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-2col {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image {
+                height: 300px;
+            }
+
+            .agent-section {
+                padding: 40px 30px;
+            }
+
+            .agent-section .name,
+            .agent-section .brokerage,
+            .contact-info p,
+            .contact-info a {
+                font-size: 22px;
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- SECTION 1: HEADER & HERO IMAGE -->
+        <section class="hero-section">
+            <div class="address-header">
+                <h1>5705 Lone Oak Drive</h1>
+                <h1 style="font-size: 36px; margin-top: -10px;">Bethesda, Maryland 20814</h1>
+            </div>
+            <div class="hero-image">
+                <img src="https://lh3.googleusercontent.com/d/1GetjfWKlYSK441q2l0eo1WaitFtfQz83=w1000" alt="Hero Image">
+            </div>
+        </section>
+
+        <!-- FAST DETAILS (moved here) -->
+        <section class="fast-details">
+            <ul>
+                <li>Over 200K in upgrades with a beautiful fenced rear yard</li>
+                <li>Amazing screened porch addition with skylights, Nana wall and patio</li>
+                <li>Updated kitchen and owner's bath with an open floor plan</li>
+            </ul>
+        </section>
+
+        <!-- SPECS BAR -->
+        <section class="specs-bar">
+            <div class="spec-item">
+                <div class="value">6</div>
+                <div class="label">Bedrooms</div>
+            </div>
+            <div class="spec-item">
+                <div class="value">5.5</div>
+                <div class="label">Bathrooms</div>
+            </div>
+            <div class="spec-item">
+                <div class="value">5,030</div>
+                <div class="label">Sq Feet</div>
+            </div>
+            <div class="spec-item">
+                <div class="value">0.30</div>
+                <div class="label">Acres</div>
+            </div>
+        </section>
+
+        <!-- FULL DESCRIPTION -->
+        <section class="description-section">
+            <h2 style="text-align: center;">The Perfect Bethesda Home</h2>
+            <p>A beautifully appointed home featuring hardwood floors and crown molding throughout the main and upper levels, with wainscoting and board-and-batten detail in the foyer, living, and dining rooms. Decorative columns, a grand staircase with carpet runner and wood railing, and a formal dining room with wallpaper accent set a refined tone. The home office offers built-in floor-to-ceiling shelving behind French doors, while the mudroom delivers built-in cubbies and a butler's pantry/wet bar with wine refrigerator.</p>
+            <p>The open family room centers on a gas fireplace with white mantel and flows into a chef's kitchen with white shaker cabinets, quartz countertops, large island with a heavy-edge profile top, gas built-in cooktop, double wall ovens, decorative tile backsplash, and under-cabinet lighting — plus a breakfast area with bay window. Custom lights and moldings throughout. Upstairs includes the primary suite, which features a tray ceiling, multiple closets, an accent wall, and a spa bath with a freestanding soaking tub, heated floors, an oversized frameless glass shower with a rain head and bench, a double vanity, and pendant lighting.</p>
+            <p>Three secondary bedrooms, a jack-and-jill bath, an additional full bath, and a vaulted bonus room complete this level. The finished lower level offers a family rec room, bedroom, full bath, and a workout room with rubber flooring accessed through glass French doors. Outside, the Hardiplank siding, a covered front porch with columns and railing, an oversized front-loading two-car garage, and a metal porch roof deliver strong curb appeal, while solar panels and a Level 2 EV charger speak to modern efficiency.</p>
+            <p>The backyard is built for every season — a custom screened porch addition with four skylights, beadboard ceiling, recessed lighting, built-in speakers, and a Nana tri-fold wall opening to the family room transitions to a flagstone patio, raised stone gas-piped fire pit with seating wall, and a large, flat, privacy-fenced yard with mature landscaping.</p>
+            <p>Lone Oak offers a superior location with easy access to major commuter roads, is a short walk to Wildwood Shopping Center, and is also just minutes to Downtown Bethesda.</p>
+        </section>
+
+        <!-- PHOTO GALLERY - 2 COLUMNS -->
+        <section class="gallery-section">
+            <h2 class="gallery-title">Photos</h2>
+            <div class="gallery-2col">
+                <div class="gallery-item">
+                    <img src="https://lh3.googleusercontent.com/d/1vk4Q277HfznuWfOXLaJUEhO6Mw_-5bz5=w1000" alt="Photo 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://lh3.googleusercontent.com/d/1cOsuW6Ctj62H38D8x_xE2j0FygZAXK1M=w1000" alt="Photo 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://lh3.googleusercontent.com/d/1UBEOuGYK-WUYqy7IBxGthIHLEgUxk44V=w1000" alt="Photo 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://lh3.googleusercontent.com/d/1U7DWaCkkhKjJt8rkecS9db2NcT-N9S-5=w1000" alt="Photo 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://lh3.googleusercontent.com/d/1LJT28icHpan0cspbn4gZoLJRrvXy7dVp=w1000" alt="Photo 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://lh3.googleusercontent.com/d/1o8VYs01xL-jWxYUE9mDX_btaeUNxZINl=w1000" alt="Photo 6">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://lh3.googleusercontent.com/d/1LL6XZtQfogje5zo01Qkryg0dAKuS9-Bg=w1000" alt="Photo 7">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://lh3.googleusercontent.com/d/1QTfq8loxX41cSR6BROyEF1MWUdESfIo8=w1000" alt="Photo 8">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://lh3.googleusercontent.com/d/1t_i9ZCmOKVqYnAif6b_iCZ30eQdM5x8g=w1000" alt="Photo 9">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://lh3.googleusercontent.com/d/1k0rSfLtwwAHHHOT5zl2bd-PYIwfNvdVN=w1000" alt="Photo 10">
+                </div>
+            </div>
+        </section>
+
+        <!-- ACTION BUTTONS -->
+        <section class="action-buttons">
+            <a href="https://photos.app.goo.gl/GNU2kmGZxipB7DQEA" target="_blank" class="action-btn" style="display: block; text-decoration: none; color: #fff;">More Photos</a>
+        </section>
+
+        <!-- AGENT CONTACT (enlarged) -->
+        <section class="agent-section">
+            <div class="name">MIKE BURNS</div>
+            <div class="brokerage">RE/MAX ALLEGIANCE</div>
+            <div class="contact-info">
+                <p>(703) 403-2022</p>
+                <a href="mailto:mike@burnshomes.com">mike@burnshomes.com</a>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
