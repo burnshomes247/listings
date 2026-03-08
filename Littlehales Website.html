@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>123 Main Street - Mike Burns Real Estate</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #1B3A5C 0%, #2d5a8c 50%, #6A98BC 100%);
+            min-height: 100vh;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* ========== SECTION 1: HEADER & HERO ========== */
+        .hero-section {
+            margin-bottom: 30px;
+        }
+
+        .address-header {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .address-header h1 {
+            font-size: 42px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .address-header p {
+            font-size: 13px;
+            letter-spacing: 1.5px;
+            color: rgba(255, 255, 255, 0.8);
+            text-transform: uppercase;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 450px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ========== FAST DETAILS ========== */
+        .fast-details {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .fast-details ul {
+            list-style: none;
+        }
+
+        .fast-details li {
+            padding: 12px 0;
+            font-size: 18px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-weight: 600;
+        }
+
+        .fast-details li:last-child {
+            border-bottom: none;
+        }
+
+        .fast-details li:before {
+            content: "✓ ";
+            color: #4ade80;
+            font-weight: 700;
+            margin-right: 10px;
+        }
+
+        /* ========== SPECS BAR ========== */
+        .specs-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .spec-item {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .spec-item .value {
+            font-size: 28px;
+            font-weight: 700;
+            color: #4ade80;
+            margin-bottom: 5px;
+        }
+
+        .spec-item .label {
+            font-size: 11px;
+            letter-spacing: 1.2px;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+        }
+
+        /* ========== FULL DESCRIPTION ========== */
+        .description-section {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 35px;
+            margin-bottom: 40px;
+        }
+
+        .description-section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .description-section p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 15px;
+        }
+
+        /* ========== PHOTO GALLERIES ========== */
+        .gallery-section {
+            margin-bottom: 40px;
+        }
+
+        .gallery-title {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .gallery-item {
+            width: 100%;
+            height: 280px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* 2 Columns - 5 each */
+        .gallery-2col {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .gallery-2col .gallery-item {
+            height: 240px;
+        }
+
+        /* ========== ACTION BUTTONS ========== */
+        .action-buttons {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 40px;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .action-btn {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .action-btn:hover {
+            background: rgba(255, 255, 255, 0.18);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ========== AGENT CONTACT FOOTER ========== */
+        .agent-section {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 60px 50px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .agent-section .name {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+        }
+
+        .agent-section .brokerage {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-bottom: 25px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contact-info p,
+        .contact-info a {
+            font-size: 28px;
+            font-weight: 700;
+            color: #4ade80;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .address-header h1 {
+                font-size: 32px;
+            }
+
+            .specs-bar {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-2col {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image {
+                height: 300px;
+            }
+
+            .agent-section {
+                padding: 40px 30px;
+            }
+
+            .agent-section .name,
+            .agent-section .brokerage,
+            .contact-info p,
+            .contact-info a {
+                font-size: 22px;
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- SECTION 1: HEADER & HERO IMAGE -->
+        <section class="hero-section">
+            <div class="address-header">
+                <h1>42881 Littlehales Terrace</h1>
+                <h1 style="font-size: 36px; margin-top: -10px;">Ashburn, Virginia 20148</h1>
+            </div>
+            <div class="hero-image">
+                <img src="https://lh3.googleusercontent.com/d/1YgaArMRM91rG9G1KbOn5i_vprKppPz5c=w1000?authuser=0" alt="Hero Image">
+            </div>
+        </section>
+
+        <!-- FAST DETAILS (moved here) -->
+        <section class="fast-details">
+            <ul>
+                <li>Summit At Birchwood 55+ Community Four Level Elevator Townhome</li>
+                <li>Open-concept design with modern finishes</li>
+                <li>Ideal location just steps to the many community amenities</li>
+            </ul>
+        </section>
+
+        <!-- SPECS BAR -->
+        <section class="specs-bar">
+            <div class="spec-item">
+                <div class="value">3</div>
+                <div class="label">Bedrooms</div>
+            </div>
+            <div class="spec-item">
+                <div class="value">2.5</div>
+                <div class="label">Bathrooms</div>
+            </div>
+            <div class="spec-item">
+                <div class="value">2,850</div>
+                <div class="label">Sq Feet</div>
+            </div>
+            <div class="spec-item">
+                <div class="value">4</div>
+                <div class="label">Levels</div>
+            </div>
+        </section>
+
+        <!-- FULL DESCRIPTION -->
+        <section class="description-section">
+            <h2 style="text-align: center;">An Exceptional Opportunity</h2>
+            <p>Welcome to Birchwood at Brambleton, Loudoun County's premier 55+ Active Adult community! This four-level, 3 bedroom, 2.5 bath townhome-style condo offers nearly 2,600 sq. ft. of living space with the convenience of a private elevator to all levels. The open main level features 9-ft ceilings, hardwood floors, and a gourmet kitchen with granite countertops, stainless steel appliances, a walk-in pantry, a central island, and access to a personal deck.</p>
+            <p>The entire third floor is devoted to the luxurious primary suite, complete with dual vanities, a soaking tub, oversized shower, in-unit laundry, and two large storage closets. Upstairs, two spacious bedrooms share a full bath, while the entry level offers a versatile mudroom and private garage. Birchwood at Brambleton's resort-style amenities are steps away and include indoor and outdoor pools, a clubhouse, fitness center, pickleball and bocce courts, a theater room, golf simulator, walking trails, a lake with fishing pier, community garden, and a full calendar of social activities. The HOA fee includes Verizon Fios cable and internet base package!</p>
+            <p>Ideally located near Brambleton Town Center, shopping, dining, healthcare, the Silver Line Metro, and Dulles Airport — this home checks every box!</p>
+        </section>
+
+        <!-- PHOTO GALLERY - 2 COLUMNS -->
+        <section class="gallery-section">
+            <h2 class="gallery-title">Photos</h2>
+            <div class="gallery-2col">
+                <div class="gallery-item">
+                    <img src="https://lh3.googleusercontent.com/d/1g_BY7DJBfAjpZ2y8sH8vvz3I-4oJtAKl=w1000?authuser=0" alt="Photo 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://lh3.googleusercontent.com/d/1wB_swsyw85HHq4hvPIvkepfi-87gjNPs=w1000?authuser=0" alt="Photo 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://lh3.googleusercontent.com/d/1CDasJGD4S4yIeFiBG9KSSS7UEitT0BTo=w1000?authuser=0" alt="Photo 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://lh3.googleusercontent.com/d/1SnvoIyjv-RE7I4Plgi8FSA7rvvvjytwD=w1000?authuser=0" alt="Photo 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://lh3.googleusercontent.com/d/1KgDP80Wo1pLU1jI_CDoCQiTcr4lzObWQ=w1000?authuser=0" alt="Photo 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://lh3.googleusercontent.com/d/1xHPP67MvPN8CDXTFWGKo5l7Jp7Mit17E=w1000?authuser=0" alt="Photo 6">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://lh3.googleusercontent.com/d/1D_57mi6Ie6gSJQ0F1LqQwK6hfHq47GSC=w1000?authuser=0" alt="Photo 7">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://lh3.googleusercontent.com/d/1qux4ZE2wYOBBZnsWnvwJCuv1rFeJdywb=w1000?authuser=0" alt="Photo 8">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://lh3.googleusercontent.com/d/1cbnEg9GliLFUu5U2BAIARYKTnwk6dzIp=w1000?authuser=0" alt="Photo 9">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://lh3.googleusercontent.com/d/1h8KIvDO8ohWCigMaz4b5NCGaziljr-Mz=w1000?authuser=0" alt="Photo 10">
+                </div>
+            </div>
+        </section>
+
+        <!-- ACTION BUTTONS -->
+        <section class="action-buttons">
+            <a href="https://photos.app.goo.gl/pY8gF2mTefFcuDqcA" target="_blank" class="action-btn" style="display: block; text-decoration: none; color: #fff;">More Photos</a>
+        </section>
+
+        <!-- AGENT CONTACT (enlarged) -->
+        <section class="agent-section">
+            <div class="name">MIKE BURNS</div>
+            <div class="brokerage">RE/MAX ALLEGIANCE</div>
+            <div class="contact-info">
+                <p>(703) 403-2022</p>
+                <a href="mailto:mike@burnshomes.com">mike@burnshomes.com</a>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
