@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>215 I STREET NE UNIT 401 WASHINGTON DC 20002 - Mike Burns Real Estate</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #1B3A5C 0%, #2d5a8c 50%, #6A98BC 100%);
+            min-height: 100vh;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* ========== SECTION 1: HEADER & HERO ========== */
+        .hero-section {
+            margin-bottom: 30px;
+        }
+
+        .address-header {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .address-header h1 {
+            font-size: 42px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .address-header p {
+            font-size: 13px;
+            letter-spacing: 1.5px;
+            color: rgba(255, 255, 255, 0.8);
+            text-transform: uppercase;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 450px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ========== FAST DETAILS ========== */
+        .fast-details {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .fast-details ul {
+            list-style: none;
+        }
+
+        .fast-details li {
+            padding: 12px 0;
+            font-size: 18px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-weight: 600;
+        }
+
+        .fast-details li:last-child {
+            border-bottom: none;
+        }
+
+        .fast-details li:before {
+            content: "✓ ";
+            color: #4ade80;
+            font-weight: 700;
+            margin-right: 10px;
+        }
+
+        /* ========== SPECS BAR ========== */
+        .specs-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .spec-item {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .spec-item .value {
+            font-size: 28px;
+            font-weight: 700;
+            color: #4ade80;
+            margin-bottom: 5px;
+        }
+
+        .spec-item .label {
+            font-size: 11px;
+            letter-spacing: 1.2px;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+        }
+
+        /* ========== FULL DESCRIPTION ========== */
+        .description-section {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 35px;
+            margin-bottom: 40px;
+        }
+
+        .description-section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .description-section p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 15px;
+        }
+
+        /* ========== PHOTO GALLERIES ========== */
+        .gallery-section {
+            margin-bottom: 40px;
+        }
+
+        .gallery-title {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .gallery-item {
+            width: 100%;
+            height: 280px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* 2 Columns - 5 each */
+        .gallery-2col {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .gallery-2col .gallery-item {
+            height: 240px;
+        }
+
+        /* ========== ACTION BUTTONS ========== */
+        .action-buttons {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 40px;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .action-btn {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .action-btn:hover {
+            background: rgba(255, 255, 255, 0.18);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ========== AGENT CONTACT FOOTER ========== */
+        .agent-section {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 60px 50px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .agent-section .name {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+        }
+
+        .agent-section .brokerage {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-bottom: 25px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contact-info p,
+        .contact-info a {
+            font-size: 28px;
+            font-weight: 700;
+            color: #4ade80;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .address-header h1 {
+                font-size: 32px;
+            }
+
+            .specs-bar {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-2col {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image {
+                height: 300px;
+            }
+
+            .agent-section {
+                padding: 40px 30px;
+            }
+
+            .agent-section .name,
+            .agent-section .brokerage,
+            .contact-info p,
+            .contact-info a {
+                font-size: 22px;
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- SECTION 1: HEADER & HERO IMAGE -->
+        <section class="hero-section">
+            <div class="address-header">
+                <h1>215 I STREET NE UNIT 401</h1>
+                <h1 style="font-size: 36px; margin-top: -10px;">WASHINGTON DC 20002</h1>
+            </div>
+            <div class="hero-image">
+                <img src="https://lh3.googleusercontent.com/d/1V7PfVj05o9z5ZY9GO1ZgL3JGFNdaGkOl=w1000" alt="Hero Image">
+            </div>
+        </section>
+
+        <!-- FAST DETAILS (moved here) -->
+        <section class="fast-details">
+            <ul>
+                <li>Rarely available Landmark Lofts Penthouse Unit 401</li>
+                <li>Amazing multi-zoned personal terrace off the main level</li>
+                <li>Many recent updates throughout, including the owner's bath</li>
+                <li>Two assigned underground tandem parking spaces</li>
+                <li>Just steps to the H Street Corridor</li>
+            </ul>
+        </section>
+
+        <!-- SPECS BAR -->
+        <section class="specs-bar">
+            <div class="spec-item">
+                <div class="value">6</div>
+                <div class="label">Bedrooms</div>
+            </div>
+            <div class="spec-item">
+                <div class="value">2.5</div>
+                <div class="label">Bathrooms</div>
+            </div>
+            <div class="spec-item">
+                <div class="value">2,245</div>
+                <div class="label">Sq Feet</div>
+            </div>
+            <div class="spec-item">
+                <div class="value">2</div>
+                <div class="label">Tandem Parking</div>
+            </div>
+        </section>
+
+        <!-- FULL DESCRIPTION -->
+        <section class="description-section">
+            <h2 style="text-align: center;">Rarely Available Landmark Lofts Penthouse Unit 401 With Personal Terrace</h2>
+            <p>This fully renovated two-level residence at historic Landmark Lofts delivers 2,245 sq ft of interior living space plus an approximately 600 sq ft private terrace — one of the largest in the building — with 2 bedrooms, 2.5 baths, and 2 assigned garage parking spaces, steps from Union Station and the Capitol.</p>
+
+            <p>The main level opens to a sweeping living and dining space defined by exposed brick walls, freshly refinished hardwood floors, original industrial ductwork, a fireplace with stone surround, arched windows, built-in shelving, and a dramatic steel staircase. The kitchen features dark walnut cabinetry with glass uppers, black granite counters, brick backsplash, professional range, stainless hood, Sub-Zero refrigerator, and a breakfast bar open to the living area. A private office with full built-ins, a second bedroom, and two fully renovated baths — all new as of January 2026 — plus a powder room with floating vanity complete the main level.</p>
+
+            <p>Upstairs, the primary suite features original exposed timber beams spanning a vaulted ceiling above Brazilian cherry hardwood floors, an arched window, and a loft sitting area. The primary bath was fully gut-renovated with large-format marble tile floor and surround, soaking tub, frameless glass rain shower with rain head, floating double vanity, and dual LED-backlit mirrors.</p>
+
+            <p>The private terrace wraps the exterior of the penthouse level with direct French door access, multiple seating zones, and city views. At approximately 600 sq ft, it accommodates both a full dining setup and a separate lounge area — a rare find.</p>
+
+            <p>Major systems and finishes are all recently updated: new HVAC (2024), all new lighting and switches (2025), all bathrooms new (2026), floors recently refinished, fresh paint throughout, plus new washer/dryer and dishwasher (2022).</p>
+
+            <p>Landmark Lofts offers 24-hour concierge, rooftop pool, fitness center, theatre room, club room, and dry cleaning pickup. Whole Foods, Harris Teeter, Trader Joe's, Union Market, and the Red Line all within blocks.</p>
+        </section>
+
+        <!-- PHOTO GALLERY - 2 COLUMNS -->
+        <section class="gallery-section">
+            <h2 class="gallery-title">Photos</h2>
+            <div class="gallery-2col">
+                <div class="gallery-item">
+                    <img src="https://lh3.googleusercontent.com/d/1DG2pGodUkK0fEFKKu1oqkC-S12fKv6VN=w1000" alt="Photo 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://lh3.googleusercontent.com/d/1llfhnu8_bkHaY2YN7JQIFWqfasVDQ6HV=w1000" alt="Photo 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://lh3.googleusercontent.com/d/1lpHbuGZQcehcZRpkrtpBLOAV6BgzeE-q=w1000" alt="Photo 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://lh3.googleusercontent.com/d/1j0OrNZlZcPEIJFQgith8JGyryO34SaSH=w1000" alt="Photo 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://lh3.googleusercontent.com/d/1_vI8YBDO71bvPRni1Wdl5Q9sLhJMdDZ0=w1000" alt="Photo 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://lh3.googleusercontent.com/d/1lFkD5DOJ0HqcUDhpgXcIMVZbHUA2xCeO=w1000" alt="Photo 6">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://lh3.googleusercontent.com/d/1iVnD9nsv5oXlVCf27-nYVRVdk8fKlfe6=w1000" alt="Photo 7">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://lh3.googleusercontent.com/d/1Efxm0hWcROzyayBGsrA6JavlrNzSWz3M=w1000" alt="Photo 8">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://lh3.googleusercontent.com/d/1pK27b4-yxPaUK4xpE8AKQkvKuvsG_Iki=w1000" alt="Photo 9">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://lh3.googleusercontent.com/d/1JJpfIawxNgLnl5unhAYdt9tAOojwP3Tx=w1000" alt="Photo 10">
+                </div>
+            </div>
+        </section>
+
+        <!-- ACTION BUTTONS -->
+        <section class="action-buttons">
+            <a href="https://photos.app.goo.gl/6jHsqxCTsDeuoEam6" target="_blank" class="action-btn" style="display: block; text-decoration: none; color: #fff;">More Photos</a>
+        </section>
+
+        <!-- AGENT CONTACT (enlarged) -->
+        <section class="agent-section">
+            <div class="name">MIKE BURNS</div>
+            <div class="brokerage">RE/MAX ALLEGIANCE</div>
+            <div class="contact-info">
+                <p>(703) 403-2022</p>
+                <a href="mailto:mike@burnshomes.com">mike@burnshomes.com</a>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
