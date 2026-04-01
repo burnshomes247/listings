@@ -25,6 +25,7 @@
             padding: 40px 20px;
         }
 
+        /* HEADER */
         .header {
             text-align: center;
             margin-bottom: 50px;
@@ -53,6 +54,7 @@
             margin-top: 15px;
         }
 
+        /* HERO IMAGE */
         .hero {
             width: 100%;
             height: 500px;
@@ -68,6 +70,7 @@
             object-fit: cover;
         }
 
+        /* HIGHLIGHTS SECTION */
         .highlights-section {
             background: rgba(255, 255, 255, 0.12);
             backdrop-filter: blur(10px);
@@ -107,6 +110,7 @@
             font-size: 20px;
         }
 
+        /* STAT BOXES */
         .stats-section {
             margin-bottom: 50px;
         }
@@ -140,6 +144,7 @@
             color: #fff;
         }
 
+        /* GALLERY SECTION */
         .gallery-section {
             margin-bottom: 50px;
         }
@@ -152,3 +157,231 @@
 
         .gallery-item {
             border-radius: 12px;
+            overflow: hidden;
+            height: 280px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* BUTTONS SECTION */
+        .buttons-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* DESCRIPTION SECTION */
+        .description-section {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 50px;
+        }
+
+        .description-section h2 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .description-section p {
+            font-size: 14px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .agent-info {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .agent-info strong {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .price {
+                font-size: 24px;
+            }
+
+            .hero {
+                height: 300px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .buttons-section {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <h1>648 F STREET NE</h1>
+            <p>Washington, DC 20002 • Capitol Hill</p>
+            <div class="price">$2,200,000</div>
+        </div>
+
+        <!-- HERO IMAGE -->
+        <div class="hero">
+            <img src="https://drive.google.com/uc?id=1dmMnxhNvzH-BD2Ttu9ZQl9vaq8D6Ib3A&export=view" alt="648 F Street NE - Hero">
+        </div>
+
+        <!-- HIGHLIGHTS -->
+        <div class="highlights-section">
+            <h2 class="section-title">Property Highlights</h2>
+            <ul class="highlights-list">
+                <li>Spectacular Modernized Capitol Hill Classic Rowhome.</li>
+                <li>In-Law Suite (Front/Rear Entrances) And Detached Carriage House.</li>
+                <li>Fully reimagined in 2021.</li>
+                <li>Five Total Bedrooms (Including Carriage House Studio & Basement In-Law Suite) And Four And A Half Bathrooms.</li>
+                <li>Prime Capitol Hill Location.</li>
+            </ul>
+        </div>
+
+        <!-- STATS -->
+        <div class="stats-section">
+            <h2 class="section-title">Property Details</h2>
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-label">Bedrooms</div>
+                    <div class="stat-value">5</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Bathrooms</div>
+                    <div class="stat-value">4.5</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Square Feet</div>
+                    <div class="stat-value">2,900</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Parking</div>
+                    <div class="stat-value">1 Garage</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BUTTONS -->
+        <div class="buttons-section">
+            <a href="https://photos.google.com/share/AF1QipMAwSTEKxoDbTLzlt_3UcqfHOXqmmDv3Vj11kf6oMQSfsT04uYhllifTqkLeZB_w?key=VzExLW9uek1acXgtV0JLQW56ZGdBVTdORFFKVHl3" target="_blank" class="btn">📷 More Photos</a>
+            <a href="https://s3.us-east-1.amazonaws.com/remotionlambda-useast1-ye4bhexb8v/renders/q0trjiozw3/out.mp4" target="_blank" class="btn">🎬 Video Tour</a>
+        </div>
+
+        <!-- GALLERY -->
+        <div class="gallery-section">
+            <h2 class="section-title">Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?id=14eT_ddICfvAvPBBBF4Tj6odJqbt8ScYr&export=view" alt="Gallery 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?id=1TJYgT8B9P_tDLpEu6MRW4nPMh6KrhuSy&export=view" alt="Gallery 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?id=19-Pmt-AJWOeg6PhTSHaU9ndSV95pIMqw&export=view" alt="Gallery 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?id=14h4_FFxgOil34l9NZZIHSsWh2jp_rMUx&export=view" alt="Gallery 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?id=16Mbf_NGyDYLbmgj2wp1_wPfvZ4V2rAk9&export=view" alt="Gallery 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?id=1NiJ-dDrcFG2hLar_yYJ6XBEGmD1SXkNQ&export=view" alt="Gallery 6">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?id=1GEKsp8YyRwI3qJXzPNFTIrAiJ4b6pO6s&export=view" alt="Gallery 7">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?id=1rJTzmamq_L2Nno7jx8VtAlWnYCxNZS_N&export=view" alt="Gallery 8">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?id=1kitAw-NA4f-g_0AKOlT9iHkf4hqB99Nn&export=view" alt="Gallery 9">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?id=1R6R2Y9bCmmSqNYVK0mm8w7ldhVEpaz3Y&export=view" alt="Gallery 10">
+                </div>
+            </div>
+        </div>
+
+        <!-- DESCRIPTION -->
+        <div class="description-section">
+            <h2>Rare Capitol Hill Masterpiece With Carriage House & In-Law Suite</h2>
+            <p>Spectacular Modernized Capitol Hill Classic Rowhome With In-Law Suite (Front/Rear Entrances) And Detached Carriage House With One Car Conditioned Garage And Upper Level Studio Apartment. This is not to be missed, coming to the market next week: Five Total Bedrooms (Including Carriage House Studio & Basement In-Law Suite) And Four And A Half Bathrooms. Impeccable Updates And Designer Details Throughout. Private Rear Patio. Garage Conditioned And Can Be Used As Additional Office/Flex Space. Open And Modern Flow. Multiple Balconies. Substantial Primary Walk-In Closet. Large Attic Space With Pull-Down Access. Whole House Water Filtration System. New HVAC System. Prime Capitol Hill Location: Easy Access To H Street, Stanton Park, Union Market, Grocery Stores, Neighborhood Bars & Restaurants, And Much More. Check back next week for the full feature list and more photos!</p>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <div class="agent-info">
+                <strong>Mike Burns</strong> • RE/MAX Allegiance<br>
+                📱 (703) 403.2022 | 🌐 www.burnshomes.com
+            </div>
+            <p style="margin-top: 20px; font-size: 12px;">© 2026 Mike Burns Real Estate. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>
