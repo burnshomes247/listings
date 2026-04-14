@@ -29,9 +29,32 @@
             width: 100%; height: 450px;
             border-radius: 12px; overflow: hidden;
             border: 1px solid rgba(255,255,255,0.2);
-            margin-bottom: 30px;
+            margin-bottom: 0;
         }
         .hero-image img { width: 100%; height: 100%; object-fit: cover; }
+        .price-box {
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-top: none;
+            border-radius: 0 0 12px 12px;
+            padding: 22px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .price-box .price-label {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.65);
+            margin-bottom: 6px;
+        }
+        .price-box .price-amount {
+            font-size: 42px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #4ade80;
+        }
         .fast-details {
             background: rgba(255,255,255,0.12);
             backdrop-filter: blur(10px);
@@ -118,6 +141,7 @@
             .gallery-2col { grid-template-columns: 1fr; }
             .action-buttons { grid-template-columns: 1fr; }
             .hero-image { height: 300px; }
+            .price-box .price-amount { font-size: 32px; }
             .agent-section { padding: 40px 30px; }
             .agent-section .name, .agent-section .brokerage, .contact-info p, .contact-info a { font-size: 22px; }
         }
@@ -137,6 +161,10 @@
             </div>
             <div class="hero-image">
                 <img src="https://drive.google.com/thumbnail?id=1dmMnxhNvzH-BD2Ttu9ZQl9vaq8D6Ib3A&sz=w1000" alt="Hero Image">
+            </div>
+            <div class="price-box">
+                <div class="price-label">Offered At</div>
+                <div class="price-amount">$2,200,000</div>
             </div>
         </section>
 
