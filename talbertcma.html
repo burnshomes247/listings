@@ -109,7 +109,6 @@
 
 <nav class="tab-nav">
   <button class="tab-btn active" onclick="showTab('explainer', this)">Overview</button>
-  <button class="tab-btn" onclick="showTab('map', this)">📍 Map</button>
   <button class="tab-btn" onclick="showTab('subject', this)">Subject</button>
   <button class="tab-btn" onclick="showTab('c1', this)">Town Center #100A</button>
   <button class="tab-btn" onclick="showTab('c2', this)">Elvans Rd 2534B</button>
@@ -122,76 +121,6 @@
   <button class="tab-btn" onclick="showTab('c9', this)">Minnesota Ave 1711</button>
   <button class="tab-btn" onclick="showTab('all', this)">All Comps</button>
 </nav>
-
-<!-- MAP -->
-<div id="tab-map" class="tab-content">
-  <div class="map-wrap">
-    <div id="osm-map" style="width:100%;height:520px;"></div>
-  </div>
-  <div class="map-legend">
-    <div class="legend-item"><span class="legend-dot dot-subject"></span> Subject — 1221–1223 Talbert St SE (The Cooper)</div>
-    <div class="legend-item"><span class="legend-dot dot-closed"></span> Closed</div>
-    <div class="legend-item"><span class="legend-dot dot-pending"></span> Pending</div>
-    <div class="legend-item"><span class="legend-dot dot-active"></span> Active</div>
-  </div>
-</div>
-
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script>
-(function() {
-  function initMap() {
-    if (!document.getElementById('osm-map') || window._mapInit) return;
-    window._mapInit = true;
-    var map = L.map('osm-map').setView([38.8627, -76.9820], 12);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      maxZoom: 19
-    }).addTo(map);
-
-    function makeIcon(color) {
-      return L.divIcon({
-        className: '',
-        html: '<div style="width:14px;height:14px;border-radius:50%;background:' + color + ';border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,0.4);"></div>',
-        iconSize: [14, 14], iconAnchor: [7, 7], popupAnchor: [0, -10]
-      });
-    }
-
-    var gold  = makeIcon('#c9a84c');
-    var navy  = makeIcon('#0d1b2a');
-    var orange = makeIcon('#d35400');
-    var green = makeIcon('#1e7e4a');
-
-    var pins = [
-      { lat: 38.8627, lng: -76.9860, label: '★ SUBJECT — 1221–1223 Talbert St SE<br>The Cooper Condominiums · New Construction', icon: gold },
-      // Closed
-      { lat: 38.8438, lng: -76.9638, label: '<b>CLOSED $800,000</b><br>2214 Town Center Dr SE #100A<br>4 BR · 3F/2H · New Const.', icon: navy },
-      { lat: 38.8523, lng: -76.9876, label: '<b>CLOSED $655,000</b><br>2534 B Elvans Rd SE<br>5 BR · 3F/1H · New Const.', icon: navy },
-      { lat: 38.8596, lng: -76.9927, label: '<b>CLOSED $595,000</b><br>1024 Howard Rd SE<br>3 BR · 3F/1H · New Const.', icon: navy },
-      // Pending
-      { lat: 38.8441, lng: -76.9628, label: '<b>PENDING $719,990</b><br>2199 Ridgeline Lane SE #101E<br>4 BR · 3F/2H · New Const.', icon: orange },
-      // Active
-      { lat: 38.8748, lng: -76.9797, label: '<b>ACTIVE $789,950</b><br>2333 Fairlawn Ave SE #2<br>4 BR · 4F/1H · Condo', icon: green },
-      { lat: 38.8660, lng: -76.9888, label: '<b>ACTIVE $749,900</b><br>1118 Chicago St SE<br>3 BR · 3F · Fee Simple', icon: green },
-      { lat: 38.8521, lng: -76.9872, label: '<b>ACTIVE $639,999</b><br>2538 Elvans Rd SE<br>5 BR · 3F/1H · New Const.', icon: green },
-      { lat: 38.8440, lng: -76.9632, label: '<b>ACTIVE $604,990</b><br>2204 Town Center Dr SE #113B<br>4 BR · 4F/1H · New Const.', icon: green },
-      { lat: 38.8693, lng: -76.9838, label: '<b>ACTIVE $600,000</b><br>1711 Minnesota Ave SE<br>3 BR · 1F/1H · 1931', icon: green }
-    ];
-
-    pins.forEach(function(p) {
-      L.marker([p.lat, p.lng], { icon: p.icon }).addTo(map).bindPopup(p.label);
-    });
-  }
-
-  // Init when the map tab is first shown
-  var mapBtn = document.querySelector('[onclick="showTab(\'map\', this)"]');
-  if (mapBtn) {
-    mapBtn.addEventListener('click', function() { setTimeout(initMap, 50); });
-  }
-  // Also init on page load if map tab is active
-  window.addEventListener('load', function() { setTimeout(initMap, 100); });
-})();
-</script>
 
 <!-- SUBJECT -->
 <div id="tab-subject" class="tab-content">
@@ -209,13 +138,13 @@
   <div class="stats-grid">
     <div class="stat-cell"><div class="label">Structure</div><div class="value">Condominium</div></div>
     <div class="stat-cell"><div class="label">Construction</div><div class="value">New</div></div>
+    <div class="stat-cell"><div class="label">Unit SqFt</div><div class="value">1,553–1,797</div></div>
     <div class="stat-cell"><div class="label">Bedrooms</div><div class="value">3</div></div>
     <div class="stat-cell"><div class="label">Levels</div><div class="value">2</div></div>
     <div class="stat-cell"><div class="label">Parking</div><div class="value">2-Car</div></div>
     <div class="stat-cell"><div class="label">Outdoor Space</div><div class="value">Yards</div></div>
     <div class="stat-cell"><div class="label">Total Units</div><div class="value">4</div></div>
     <div class="stat-cell"><div class="label">Neighborhood</div><div class="value">Anacostia</div></div>
-    <div class="stat-cell"><div class="label">Unit SqFt</div><div class="value">1,553–1,797</div></div>
   </div>
   <p style="font-size:13px;color:var(--muted);">Michael Burns · BURNSHOMES · RE/MAX Allegiance · <a href="tel:7034032022" style="color:var(--navy);">(703) 403-2022</a></p>
 </div>
