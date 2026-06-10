@@ -215,13 +215,14 @@
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1px;
-            background: #c8c0b0;
+            gap: 12px;
         }
         .gallery-item {
             height: 240px;
             overflow: hidden;
             background: #eee;
+            border: 1px solid #c8c0b0;
+            border-radius: 2px;
         }
         .gallery-item img {
             width: 100%;
@@ -384,9 +385,9 @@
         </div>
 
         <!-- GALLERY -->
-        <div class="section-block" style="overflow:hidden; margin-bottom:30px;">
+        <div class="section-block" style="margin-bottom:30px;">
             <div class="section-title">Photos</div>
-            <div class="gallery-grid">
+            <div style="padding:16px;"><div class="gallery-grid">
                 <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1cJ8u8n7FzZ6N6AK1Jj91AGPyJiNLcG6G&sz=w1000" alt="Photo 1"></div>
 <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1Rkh9scDkaXxmuvWTECbRxMomAdwy26Zw&sz=w1000" alt="Photo 2"></div>
 <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1UF_SzAvIT0B0KXhCQEd8zGo_LrZFHg3p&sz=w1000" alt="Photo 3"></div>
@@ -399,7 +400,7 @@
 <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=15WdfhNkP0pqJTMlRJ_7k-BHn7AEC3NTb&sz=w1000" alt="Photo 10"></div>
 <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1_xGGy8nX34VguOEovlIgosmRhqNEihTt&sz=w1000" alt="Photo 11"></div>
 <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=178e8x2WfggDvjmcmr91fVjDz35BhC6Ux&sz=w1000" alt="Photo 12"></div>
-            </div>
+            </div></div>
         </div>
 
         <!-- ACTION BUTTONS (only if MORE_PHOTOS_URL or VIDEO_TOUR_URL provided) -->
