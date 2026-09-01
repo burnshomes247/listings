@@ -45,6 +45,13 @@ body { font-family: Georgia, 'Times New Roman', serif; background: #f5f3ef; colo
 .spec-item .label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #888; }
 .description-body p { font-size: 15px; line-height: 1.9; color: #333; margin-bottom: 16px; }
 .description-body p:last-child { margin-bottom: 0; }
+.gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.gallery-item { height: 240px; overflow: hidden; background: #eee; border: 1px solid #c8c0b0; border-radius: 2px; }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+.gallery-item:hover img { transform: scale(1.04); }
+.action-buttons { display: grid; grid-template-columns: 1fr; gap: 16px; margin-bottom: 30px; }
+.action-btn { display: block; text-align: center; padding: 22px 20px; border: 1px solid #1a1a2e; background: #fff; color: #1a1a2e; font-family: Georgia, serif; font-size: 22px; font-weight: bold; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; transition: background 0.2s, color 0.2s; }
+.action-btn:hover { background: #1a1a2e; color: #fff; }
 .agent-section { border: 3px double #1a1a2e; background: #fff; padding: 44px 40px; text-align: center; margin-bottom: 0; }
 .agent-name { font-family: Georgia, serif; font-size: 22px; font-weight: normal; letter-spacing: 4px; text-transform: uppercase; color: #1a1a2e; margin-bottom: 6px; }
 .agent-brokerage { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #888; margin-bottom: 24px; }
@@ -60,6 +67,8 @@ body { font-family: Georgia, 'Times New Roman', serif; background: #f5f3ef; colo
 .specs-bar { grid-template-columns: 1fr; }
 .spec-item { border-right: none; border-bottom: 1px solid #c8c0b0; }
 .spec-item:last-child { border-bottom: none; }
+.gallery-grid { grid-template-columns: 1fr; }
+.action-buttons { grid-template-columns: 1fr; }
 .agent-section { padding: 36px 24px; }
 .price-amount { font-size: 28px; }
 }
@@ -77,7 +86,6 @@ body { font-family: Georgia, 'Times New Roman', serif; background: #f5f3ef; colo
 </div>
 
 <div class="hero-image">
-<span class="coming-soon-tag">Coming Soon</span>
 <img src="https://drive.google.com/thumbnail?id=1jhMPRpdXCCo-Q4yp5eqC60hjxvIR89ls&sz=w1000" alt="11776 Stratford House Place #1204">
 </div>
 
@@ -86,24 +94,46 @@ body { font-family: Georgia, 'Times New Roman', serif; background: #f5f3ef; colo
 <div class="price-amount">$799,000</div>
 </div>
 
+<div class="section-block fast-details">
+<div class="section-title">Property Highlights</div>
+<div class="section-body"><ul>
+<li>Amazing unobstructed twelfth floor treetop views</li>
+<li>Updated flooring, painting and fixtures</li>
+<li>New HVAC system</li>
+<li>Two parking spaces and one storage locker</li>
+<li>Residents enjoy top-notch, full-service amenities, including concierge and elevator service, a community pool, and a fitness center</li>
+</ul></div>
+</div>
+
 <div class="specs-bar">
 <div class="spec-item"><div class="value">2</div><div class="label">Bedrooms</div></div>
 <div class="spec-item"><div class="value">2</div><div class="label">Bathrooms</div></div>
 <div class="spec-item"><div class="value">Garage</div><div class="label">Parking</div></div>
 </div>
 
-<div class="coming-soon-banner">
-<div class="headline">More Details Coming Soon</div>
-<p>Full photos, floor plan, and property details for this residence are on the way &mdash; check back in the next couple of weeks, or contact Mike below to get on the early-access list.</p>
-</div>
-
 <div class="section-block">
 <div class="section-title">The Stratford House</div>
 <div class="section-body description-body">
-<p>Welcome to luxurious living at The Stratford House, located just one block from the vibrant Reston Town Center and three blocks from the Reston Metro Station.</p>
-<p>Residents of The Stratford House enjoy top-notch, full-service amenities, including concierge and elevator service, a community pool, and a fitness center.</p>
-<p>The location offers easy access to the Toll Road, Route 7, and the Reston Metro Station, with the W&amp;OD Trail just steps away and several grocery stores minutes from your door. Walk to all the dining, shopping, and entertainment options that Reston Town Center has to offer for a lifestyle of comfort and convenience.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
 </div>
+</div>
+
+<div class="section-block" style="margin-bottom:30px;">
+<div class="section-title">Photos</div>
+<div style="padding:16px;"><div class="gallery-grid">
+<div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1Yx8qrSFyLKtffsaSTTuP0Zx5PUscdeoL&sz=w1000" alt="Photo 1"></div>
+<div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1q_wtn1GfngXEKSYrqvIOFt6dQ3dfvEu7&sz=w1000" alt="Photo 2"></div>
+<div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1RLsO4wEa1wQQ2zvPr3uLQlqpCi4tH33y&sz=w1000" alt="Photo 3"></div>
+<div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1DR950rJ5MbiqbPMVOuaqOxXiUTFeX6Ve&sz=w1000" alt="Photo 4"></div>
+<div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1uwOjbgRydbLyUH8nsPlYhtwubtizr8pA&sz=w1000" alt="Photo 5"></div>
+<div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1msew0H60dLoZnFgFsgnvSu4oEKr6cQ3P&sz=w1000" alt="Photo 6"></div>
+</div></div>
+</div>
+
+<div class="action-buttons">
+<a href="https://photos.google.com/share/AF1QipOH3VG0qk_1c_hPD-wtF3BrwzRkn-d23D5Q92h1oBMIFfXg6L-wSmeHO1vWfKiiZQ?key=alRkOU9SOEpUZVNQQlk0ODJRdlRNRlVjYzBnYTN3" target="_blank" class="action-btn">More Photos</a>
 </div>
 
 <div class="agent-section">
