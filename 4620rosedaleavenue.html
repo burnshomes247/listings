@@ -89,12 +89,27 @@
             overflow: hidden;
             border: 1px solid #c8c0b0;
             margin-bottom: 0;
+            position: relative;
         }
         .hero-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
+        }
+        .under-contract-tag {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: #1a1a2e;
+            color: #fff;
+            font-family: Georgia, serif;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 8px 16px;
+            z-index: 2;
         }
 
         /* ── PRICE BOX ── */
@@ -344,6 +359,7 @@
 
         <!-- HERO IMAGE -->
         <div class="hero-image">
+            <span class="under-contract-tag">Under Contract</span>
             <img src="https://drive.google.com/thumbnail?id=1SuQutD6c-Y-bVYNG-cFhicIUDNkpADAE&sz=w1000" alt="4620 Rosedale Ave">
         </div>
 
