@@ -23,9 +23,9 @@ body{color:var(--ink);font-family:var(--serif);font-size:17px;line-height:1.5;
 /* top bar */
 .top{display:flex;align-items:center;gap:14px;padding:12px 18px;border-bottom:1px solid var(--gold)}
 .top a.logo{display:flex;align-items:center;gap:10px;color:var(--navy);text-decoration:none;flex:none}
-.top img{width:40px;height:40px;border-radius:50%;object-fit:cover}
-.top .wm{font-size:13px;letter-spacing:.3em;font-weight:bold}
-.top .addr{margin-left:auto;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-align:right}
+.top img{width:56px;height:56px;border-radius:50%;object-fit:cover}
+.top .wm{font-size:20px;letter-spacing:.3em;font-weight:bold}
+.top .addr{margin-left:auto;font-size:16px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:right}
 .tabs{display:flex;gap:2px;overflow-x:auto;border-bottom:1px solid var(--line);padding:0 10px;scrollbar-width:thin}
 .tabs button{flex:none;font:inherit;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:none;border:0;border-bottom:3px solid transparent;padding:10px 10px 8px;cursor:pointer;white-space:nowrap}
 .tabs button:hover{color:var(--navy)}
@@ -347,19 +347,12 @@ tr.star td:first-child{font-weight:bold}
 
   </div>
 
-  <div class="nav">
-    <button type="button" id="prev">← Prev</button>
-    <span class="count" id="count">1 / 17</span>
-    <button type="button" id="next">Next →</button>
-  </div>
 </div>
-<p class="foot">MIKE BURNS · BURNSHOMES · (703) 403-2022 · mike@burnshomes.com</p>
 
 <script>
 (function(){
   var slides=[].slice.call(document.querySelectorAll('.slide'));
-  var tabs=document.getElementById('tabs'), count=document.getElementById('count');
-  var prev=document.getElementById('prev'), next=document.getElementById('next');
+  var tabs=document.getElementById('tabs');
   var btns=slides.map(function(s,i){
     var b=document.createElement('button');
     b.type='button'; b.setAttribute('role','tab'); b.textContent=(i+1)+'. '+s.dataset.tab;
@@ -372,12 +365,8 @@ tr.star td:first-child{font-weight:bold}
     slides.forEach(function(s,j){s.hidden=j!==cur; s.classList.toggle('on',j===cur)});
     btns.forEach(function(b,j){b.setAttribute('aria-selected',j===cur?'true':'false')});
     btns[cur].scrollIntoView({block:'nearest',inline:'center'});
-    count.textContent=(cur+1)+' / '+slides.length;
-    prev.disabled=cur===0; next.disabled=cur===slides.length-1;
     if(!noHash){try{history.replaceState(null,'','#'+slides[cur].id)}catch(e){}}
   }
-  prev.addEventListener('click',function(){go(cur-1)});
-  next.addEventListener('click',function(){go(cur+1)});
   document.addEventListener('keydown',function(e){
     if(e.target.closest&&e.target.closest('input,textarea'))return;
     if(e.key==='ArrowRight'||e.key==='PageDown'){go(cur+1);e.preventDefault()}
