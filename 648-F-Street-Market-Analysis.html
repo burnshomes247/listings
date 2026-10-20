@@ -30,7 +30,7 @@ body{color:var(--ink);font-family:var(--serif);font-size:17px;line-height:1.5;
 .tabs button{flex:none;font:inherit;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:none;border:0;border-bottom:3px solid transparent;padding:10px 10px 8px;cursor:pointer;white-space:nowrap}
 .tabs button:hover{color:var(--navy)}
 .tabs button[aria-selected="true"]{color:var(--navy);border-bottom-color:var(--navy);font-weight:bold}
-.pager{display:flex;justify-content:flex-end;gap:8px;padding:10px 18px 0}
+.pager{display:flex;justify-content:flex-end;gap:8px;padding:12px 18px 16px}
 .pager button{font:inherit;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--navy);border:1px solid var(--navy);padding:8px 16px;cursor:pointer}
 .pager button:hover:not(:disabled){background:var(--steel);border-color:var(--steel)}
 .pager button:disabled{opacity:.35;cursor:default}
@@ -112,7 +112,6 @@ tr.star td:first-child{font-weight:bold}
     <div class="addr">648 F St NE · Market Analysis · October 2026</div>
   </div>
   <div class="tabs" role="tablist" id="tabs"></div>
-  <div class="pager"><button type="button" id="prev">← Prev</button><button type="button" id="next">Next →</button></div>
 
   <div class="stage">
 
@@ -351,7 +350,7 @@ tr.star td:first-child{font-weight:bold}
   </section>
 
   </div>
-
+  <div class="pager"><button type="button" id="prev">← Prev</button><button type="button" id="next">Next →</button></div>
 </div>
 
 <script>
