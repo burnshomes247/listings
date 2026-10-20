@@ -69,6 +69,9 @@ td{padding:7px 10px;border-top:1px solid var(--line);white-space:nowrap}
 .num{text-align:right}
 td.hl{font-weight:bold;color:var(--navy)}
 td.chg-bad{color:var(--brick);font-weight:bold}
+tr.key td{background:#f3e3c3;font-weight:bold;color:var(--navy);font-size:17px}
+tr.key td:first-child{border-left:4px solid var(--gold)}
+tr.key td.chg-bad{color:var(--brick)}
 tr.subject td{background:var(--tint);font-weight:bold;color:var(--navy)}
 tr.ne td:first-child{border-left:3px solid var(--steel)}
 tr.excl td{color:var(--muted);font-style:italic}
@@ -169,14 +172,14 @@ tr.star td:first-child{font-weight:bold}
       <table>
         <thead><tr><th></th><th class="num">This week</th><th class="num">vs. a year ago</th></tr></thead>
         <tbody>
-          <tr><td>Showings</td><td class="num">55,403</td><td class="num chg-bad">↓ 12.6%</td></tr>
-          <tr><td>New purchase contracts</td><td class="num">4,164</td><td class="num chg-bad">↓ 15.5%</td></tr>
+          <tr class="key"><td>Showings</td><td class="num">55,403</td><td class="num chg-bad">↓ 12.6%</td></tr>
+          <tr class="key"><td>New purchase contracts</td><td class="num">4,164</td><td class="num chg-bad">↓ 15.5%</td></tr>
           <tr><td>Median time to contract</td><td class="num">34 days</td><td class="num chg-bad">↑ 5 days</td></tr>
           <tr><td>New listings</td><td class="num">5,545</td><td class="num">↑ 1.1%</td></tr>
           <tr><td>Median list price</td><td class="num">$429,000</td><td class="num">↑ 3.4%</td></tr>
-          <tr><td>Active listings</td><td class="num">56,645</td><td class="num chg-bad">↑ 20.7%</td></tr>
+          <tr class="key"><td>Active listings</td><td class="num">56,645</td><td class="num chg-bad">↑ 20.7%</td></tr>
           <tr><td>Active listings with a price decrease</td><td class="num">10.0%</td><td class="num chg-bad">↑ 0.4 pts</td></tr>
-          <tr><td>Canceled listings</td><td class="num">593</td><td class="num chg-bad">↑ 43.2%</td></tr>
+          <tr class="key"><td>Canceled listings</td><td class="num">593</td><td class="num chg-bad">↑ 43.2%</td></tr>
         </tbody>
       </table>
     </div>
