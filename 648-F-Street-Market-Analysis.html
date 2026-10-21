@@ -30,14 +30,15 @@ body{color:var(--ink);font-family:var(--serif);font-size:17px;line-height:1.5;
 .tabs button{flex:none;font:inherit;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:none;border:0;border-bottom:3px solid transparent;padding:10px 10px 8px;cursor:pointer;white-space:nowrap}
 .tabs button:hover{color:var(--navy)}
 .tabs button[aria-selected="true"]{color:var(--navy);border-bottom-color:var(--navy);font-weight:bold}
-.pager{display:flex;justify-content:flex-end;gap:8px;padding:12px 18px 16px}
-.pager button{font:inherit;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--navy);border:1px solid var(--navy);padding:8px 16px;cursor:pointer}
-.pager button:hover:not(:disabled){background:var(--steel);border-color:var(--steel)}
-.pager button:disabled{opacity:.35;cursor:default}
-.pager button:focus-visible,.tabs button:focus-visible,.nav button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:52px;height:52px;border-radius:50%;border:0;background:var(--navy);color:#fff;font-size:26px;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 6px rgba(7,45,94,.25)}
+.arrow.prev{left:10px} .arrow.next{right:10px}
+.arrow:hover:not(:disabled){background:var(--steel)}
+.arrow:disabled{opacity:.2;cursor:default}
+@media (max-width:600px){.arrow{width:38px;height:38px;font-size:20px}.arrow.prev{left:4px}.arrow.next{right:4px}}
+.arrow:focus-visible,.tabs button:focus-visible,.nav button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 /* slides */
-.stage{flex:1;display:flex;min-height:0}
-.slide{flex:1;padding:clamp(20px,4vw,48px) clamp(18px,5vw,60px);display:flex;flex-direction:column;gap:18px;min-width:0}
+.stage{flex:1;display:flex;min-height:0;position:relative}
+.slide{flex:1;padding:clamp(20px,4vw,48px) clamp(50px,7vw,84px);display:flex;flex-direction:column;gap:18px;min-width:0}
 .eyebrow{font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--steel);font-weight:bold}
 h2{font-size:clamp(26px,3.8vw,40px);line-height:1.15;color:var(--navy);margin:0;font-weight:normal;text-wrap:balance}
 .lede{font-size:clamp(18px,2vw,22px);color:var(--ink);max-width:46ch;margin:0}
@@ -122,6 +123,8 @@ tr.star td:first-child{font-weight:bold}
   <div class="tabs" role="tablist" id="tabs"></div>
 
   <div class="stage">
+  <button type="button" class="arrow prev" id="prev" aria-label="Previous slide">&#8249;</button>
+  <button type="button" class="arrow next" id="next" aria-label="Next slide">&#8250;</button>
 
   <section class="slide opener" data-tab="Opening" id="s1">
     <p class="big addr-title">648 F Street NE<br>Washington, DC 20002</p>
@@ -428,7 +431,6 @@ tr.star td:first-child{font-weight:bold}
   </section>
 
   </div>
-  <div class="pager"><button type="button" id="prev">← Prev</button><button type="button" id="next">Next →</button></div>
 </div>
 
 <script>
