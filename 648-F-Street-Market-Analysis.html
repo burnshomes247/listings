@@ -30,6 +30,7 @@ body{color:var(--ink);font-family:var(--serif);font-size:17px;line-height:1.5;
 .restart button{font:inherit;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);background:var(--paper);border:1px solid var(--navy);padding:7px 14px;cursor:pointer}
 .restart button:hover{background:var(--navy);color:#fff}
 .restart button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.slide.archived{display:none!important}
 .tabs{display:none;gap:2px;overflow-x:auto;border-bottom:1px solid var(--line);padding:0 10px;scrollbar-width:thin}
 .tabs button{flex:none;font:inherit;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:none;border:0;border-bottom:3px solid transparent;padding:10px 10px 8px;cursor:pointer;white-space:nowrap}
 .tabs button:hover{color:var(--navy)}
@@ -199,7 +200,7 @@ tr.star td:first-child{font-weight:bold}
           <tr><td>Sold price</td><td class="hl">$2,025,000</td></tr>
           <tr><td>Beds / baths</td><td class="">4 / 4.5</td></tr>
           <tr><td>Finished SF</td><td class=""><span class="todo">To fill in</span></td></tr>
-          <tr><td>Lower level</td><td class="">Stairs open inside</td></tr>
+          <tr class="key"><td>Lower level</td><td class="">Stairs open inside</td></tr>
           <tr><td>Carriage house</td><td class="">Yes</td></tr>
           <tr><td>Condition</td><td class="">Heavily updated</td></tr>
           <tr><td>Location</td><td class="">NE, near 648</td></tr>
@@ -219,7 +220,7 @@ tr.star td:first-child{font-weight:bold}
     </div>
   </section>
 
-  <section class="slide" data-tab="Recent Sales" id="s5">
+  <section class="slide archived" data-tab="Recent Sales" id="s5">
     <div class="eyebrow">April – October 2026</div>
     <h2>Capitol Hill sales</h2>
     <div class="tw tall">
@@ -257,7 +258,7 @@ tr.star td:first-child{font-weight:bold}
     </div>
   </section>
 
-  <section class="slide" data-tab="324 E St NE" id="s7">
+  <section class="slide archived" data-tab="324 E St NE" id="s7">
     <div class="eyebrow">Sold June 1, 2026 · Buyer also toured 648</div>
     <h2>324 E St NE</h2>
     <div class="tw">
@@ -275,7 +276,7 @@ tr.star td:first-child{font-weight:bold}
     </div>
   </section>
 
-  <section class="slide" data-tab="319 9th St SE" id="s9">
+  <section class="slide archived" data-tab="319 9th St SE" id="s9">
     <div class="eyebrow">Private sale · Under contract</div>
     <h2>319 9th St SE</h2>
     <div class="tw">
@@ -448,7 +449,7 @@ tr.star td:first-child{font-weight:bold}
 
 <script>
 (function(){
-  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var slides=[].slice.call(document.querySelectorAll('.slide:not(.archived)'));
   var tabs=document.getElementById('tabs');
   var btns=slides.map(function(s,i){
     var b=document.createElement('button');
