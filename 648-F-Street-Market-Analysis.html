@@ -128,6 +128,8 @@ tr.star td:first-child{font-weight:bold}
 .scale .a{background:var(--navy);color:var(--paper)} .scale .b{background:var(--steel);color:var(--paper)} .scale .c{background:var(--tint);color:var(--brick)}
 .scale b{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px}
 .scale span{font-size:14px}
+.scale.odds{grid-template-columns:6fr 2fr 1.8fr}
+.scale .pct{display:block;font-size:26px;line-height:1.2;font-variant-numeric:tabular-nums}
 /* timeline */
 .timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;border:1px solid var(--line)}
 .phase{padding:18px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:6px;min-width:0}
@@ -175,6 +177,7 @@ tr.star td:first-child{font-weight:bold}
   .bondchart .hide-m{display:none}
   .mapfig img,.chartfig img{width:100%;height:auto;max-height:none;min-height:0}
   .timeline{grid-template-columns:1fr}
+  .scale.odds{grid-template-columns:1fr}
   .phase{border-right:0;border-bottom:1px solid var(--line)}
   .phase:last-child{border-bottom:0}
 }
@@ -535,11 +538,11 @@ tr.star td:first-child{font-weight:bold}
   </section>
 
   <section class="slide opener" data-tab="Likelihood" id="s14">
-    <p class="big" style="max-width:24ch">Someone could pay more. The question is how likely that is.</p>
-    <div class="scale" style="width:100%;max-width:900px;text-align:left">
-      <div class="a"><b>Likely</b><span class="todo" style="color:inherit">Range TBD</span></div>
-      <div class="b"><b>Possible</b><span>Range TBD</span></div>
-      <div class="c"><b>Less likely</b><span>Range TBD</span></div>
+    <p class="big" style="max-width:24ch">Someone could pay more. The question is, what are the odds?</p>
+    <div class="scale odds" style="width:100%;max-width:900px;text-align:left">
+      <div class="a"><b>Most likely</b><span class="pct">70%</span></div>
+      <div class="b"><b>Possible</b><span class="pct">20%</span></div>
+      <div class="c"><b>Least likely</b><span class="pct">10% or less</span></div>
     </div>
   </section>
 
