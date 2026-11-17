@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>9 Sunset Dr Market Activity</title>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-359RJ8YZZY"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-359RJ8YZZY');</script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+:root{
+  --cream:#f5f2ea; --paper:#fbf9f4; --navy:#072d5e; --steel:#5889b4; --brick:#a3402c; --gold:#b3872a;
+  --ink:#1f2a38; --muted:#5d6672; --line:#d9d1bd; --tint:#efe6cf;
+  --serif: Georgia, "Times New Roman", serif;
+  color-scheme: light;
+}
+*{box-sizing:border-box}
+html,body{background:var(--cream);margin:0}
+body{color:var(--ink);font-family:var(--serif);font-size:17px;line-height:1.55;padding:20px 16px 32px}
+.page{max-width:960px;margin:0 auto;background:var(--paper);border:4px double var(--navy)}
+header{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:22px 28px;border-bottom:4px double var(--navy)}
+header a.logo{display:flex;align-items:center;gap:14px;color:var(--navy);text-decoration:none}
+header img{width:58px;height:58px;border-radius:50%;object-fit:cover}
+header .wm{font-size:24px;letter-spacing:.3em;font-weight:bold}
+header .doc{margin-left:auto;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-align:right}
+main{padding:32px 28px 12px}
+section{margin-bottom:40px}
+.eyebrow{font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--steel);font-weight:bold;margin:0 0 6px}
+h1{font-size:clamp(30px,5vw,46px);line-height:1.12;color:var(--navy);font-weight:normal;margin:0 0 10px}
+h2{font-size:clamp(22px,3vw,28px);color:var(--navy);font-weight:normal;margin:0 0 14px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+p{margin:0 0 12px;max-width:66ch}
+.note{font-size:14.5px;color:var(--muted)}
+strong{color:var(--navy)}
+.home{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--line);margin-top:18px}
+.home div{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--line)}
+.home div:last-child{border-right:0}
+.home .k{display:block;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.home .v{font-size:18px;color:var(--navy)}
+#map{height:440px;border:4px double var(--navy);background:var(--tint)}
+.legend{display:flex;gap:22px;flex-wrap:wrap;font-size:14px;color:var(--muted);margin-top:10px}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.pin{width:28px;height:28px;border-radius:50%;background:var(--navy);color:#fff;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;font:bold 14px var(--serif)}
+.pin.subj{background:var(--brick);width:34px;height:34px;font-size:18px}
+.legend .pin{width:22px;height:22px;font-size:12px;box-shadow:none}
+.legend .pin.subj{width:22px;height:22px;font-size:13px}
+.leaflet-container{font-family:var(--serif)}
+.leaflet-popup-content{font-size:14px;line-height:1.45;color:var(--ink)}
+.leaflet-popup-content b{color:var(--navy)}
+table{border-collapse:collapse;width:100%;font-size:15.5px;font-variant-numeric:tabular-nums}
+th{background:var(--navy);color:var(--paper);font-weight:normal;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;text-align:left;padding:9px 10px}
+td{padding:9px 10px;border-top:1px solid var(--line)}
+th.n,td.n{text-align:right}
+th.c,td.c{text-align:center}
+tbody tr:nth-child(even) td{background:#f6f1e6}
+td.addr{color:var(--navy)}
+td.num .pin{width:24px;height:24px;font-size:12px;box-shadow:none;margin:0 auto}
+.status{font-size:11px;letter-spacing:.1em;text-transform:uppercase;border:1px solid currentColor;padding:1px 6px;white-space:nowrap}
+.st-active{color:var(--navy)} .st-pending{color:var(--gold)} .st-sold{color:var(--brick)}
+@media (max-width:680px){
+  header{padding:18px}
+  header .doc{margin-left:0;text-align:left;width:100%}
+  main{padding:24px 18px 8px}
+  #map{height:340px}
+  table,thead,tbody,tr,td{display:block;width:100%}
+  thead{display:none}
+  tbody tr{border:1px solid var(--line);margin-bottom:12px;background:#fff;position:relative}
+  tbody tr:nth-child(even) td{background:none}
+  td{border-top:0;padding:5px 14px;display:flex;justify-content:space-between;gap:12px;text-align:right}
+  td.n{text-align:right}
+  td::before{content:attr(data-l);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:left}
+  td.num{position:absolute;top:7px;right:10px;width:auto;padding:0;background:none!important}
+  td.num::before{content:none}
+  td.addr{display:block;text-align:left;background:var(--tint)!important;font-weight:bold;padding:10px 48px 10px 14px}
+  td.addr::before{content:none}
+}
+footer{border-top:4px double var(--navy);padding:24px 28px;text-align:center}
+footer a.logo img{width:56px;height:56px;border-radius:50%}
+footer .sig{margin-top:10px;font-size:15px;line-height:1.7;color:var(--navy)}
+footer .sig a{color:var(--navy);text-decoration:none}
+footer .disc{font-size:12.5px;color:var(--muted);margin:14px auto 0;max-width:70ch}
+a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <a class="logo" href="https://www.burnshomes.com" target="_blank" rel="noopener"><img src="https://burnshomes247.github.io/listings/burnshomes-logo.png" alt="BURNSHOMES logo"><span class="wm">BURNSHOMES</span></a>
+  <div class="doc">Neighborhood Market Activity<br>November 17, 2026</div>
+</header>
+<main>
+
+<section>
+  <p class="eyebrow">Prepared for your home</p>
+  <h1>9 Sunset Drive, Alexandria, VA 22301</h1>
+  <p>Ten homes on Sunset Drive and Mount Vernon Avenue have sold since July 2025. One more is under contract, and <strong>309 Mount Vernon Avenue</strong> is for sale now.</p>
+  <div class="home">
+    <div><span class="k">Style</span><span class="v">End-unit townhouse</span></div>
+    <div><span class="k">Built</span><span class="v">1920</span></div>
+    <div><span class="k">Above-grade sq ft</span><span class="v">1,428</span></div>
+    <div><span class="k">Total sq ft</span><span class="v">1,785</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Your Neighborhood</h2>
+  <div id="map" role="img" aria-label="Map of 9 Sunset Drive and nearby sales"></div>
+  <div class="legend">
+    <span><span class="pin subj">★</span>Your home</span>
+    <span><span class="pin">1</span>Nearby home (matches the table below)</span>
+  </div>
+</section>
+
+<section>
+  <h2>Nearby Sales &amp; Listings</h2>
+  <table>
+    <thead><tr><th class="c">#</th><th>Address</th><th>Status</th><th class="n">DOM</th><th class="n">Price</th><th class="n">Beds / baths</th><th class="n">Above-grade sq ft</th><th class="n">Total sq ft</th></tr></thead>
+    <tbody id="rows"></tbody>
+  </table>
+  <p class="note" style="margin-top:10px">Price is the sold price for sold homes and the list price for active and pending homes. Total sq ft includes finished basement space. 29 Mount Vernon's above-grade size is from the listing; tax records show 952.</p>
+</section>
+
+</main>
+<footer>
+  <a class="logo" href="https://www.burnshomes.com" target="_blank" rel="noopener"><img src="https://burnshomes247.github.io/listings/burnshomes-logo.png" alt="BURNSHOMES logo"></a>
+  <div class="sig">MIKE BURNS<br>BURNSHOMES · RLAH Real Estate<br><a href="tel:+17034032022">(703) 403-2022</a> · <a href="mailto:mike@burnshomes.com">mike@burnshomes.com</a></div>
+  <p class="disc">Data from Bright MLS and public tax records, November 17, 2026. Believed reliable but not guaranteed. This is not an appraisal.</p>
+</footer>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+// ===== Edit this block for each new page =====
+const SUBJECT = {address:"9 Sunset Dr", lat:38.8075191, lng:-77.0612196};
+// status: "Active" | "Pending" | "Sold"   date: MM/DD/YY sold date (blank for Active/Pending)
+const COMPS = [
+  {address:"309 Mount Vernon Ave", status:"Active",  date:"",         dom:13, price:800000,  beds:2, baths:"2",   ag:850,  total:1241, lat:38.8110853, lng:-77.0567107},
+  {address:"323 Mount Vernon Ave", status:"Pending", date:"",         dom:43, price:759000,  beds:2, baths:"2",   ag:850,  total:1275, lat:38.8113934, lng:-77.0564911},
+  {address:"29 Mount Vernon Ave",  status:"Sold",    date:"06/26/26", dom:22, price:720000,  beds:2, baths:"1.5", ag:1044, total:1044, lat:38.8086104, lng:-77.0593148},
+  {address:"433 Mount Vernon Ave", status:"Sold",    date:"04/24/26", dom:5,  price:825000,  beds:3, baths:"2.5", ag:965,  total:1265, lat:38.8124610, lng:-77.0556929},
+  {address:"317 Mount Vernon Ave", status:"Sold",    date:"04/14/26", dom:3,  price:815000,  beds:2, baths:"2",   ag:800,  total:1200, lat:38.8112761, lng:-77.0565710},
+  {address:"311 Mount Vernon Ave", status:"Sold",    date:"03/06/26", dom:47, price:730000,  beds:2, baths:"1",   ag:850,  total:1250, lat:38.8111621, lng:-77.0566576},
+  {address:"49 Mount Vernon Ave",  status:"Sold",    date:"03/02/26", dom:0,  price:710000,  beds:2, baths:"1.5", ag:952,  total:952,  lat:38.8089830, lng:-77.0587634},
+  {address:"20 Sunset Dr",         status:"Sold",    date:"11/14/25", dom:3,  price:1575000, beds:4, baths:"3.5", ag:2016, total:2640, lat:38.8080295, lng:-77.0612392},
+  {address:"333 Mount Vernon Ave", status:"Sold",    date:"10/13/25", dom:8,  price:750000,  beds:2, baths:"1",   ag:800,  total:1677, lat:38.8116224, lng:-77.0563231},
+  {address:"53 Mount Vernon Ave",  status:"Sold",    date:"07/22/25", dom:32, price:660000,  beds:2, baths:"1",   ag:952,  total:952,  lat:38.8090548, lng:-77.0586888},
+  {address:"23 Mount Vernon Ave",  status:"Sold",    date:"07/18/25", dom:24, price:657000,  beds:2, baths:"1.5", ag:952,  total:952,  lat:38.8084804, lng:-77.0595134},
+  {address:"18 Sunset Dr",         status:"Sold",    date:"07/11/25", dom:0,  price:830000,  beds:3, baths:"2.5", ag:1152, total:1152, lat:38.8079389, lng:-77.0613502}
+];
+// =============================================
+
+const fmt$ = n => "$" + n.toLocaleString("en-US");
+const fmtN = n => (n == null ? "—" : n.toLocaleString("en-US"));
+const order = {Active:0, Pending:1, Sold:2};
+const toDate = s => { if (!s) return new Date(8640000000000000); const [m,d,y] = s.split("/"); return new Date(2000+ +y, m-1, d); };
+COMPS.sort((a,b) => (order[a.status]-order[b.status]) || (toDate(b.date)-toDate(a.date)));
+
+const cls = {Active:"st-active", Pending:"st-pending", Sold:"st-sold"};
+document.getElementById("rows").innerHTML = COMPS.map((c,i) => `
+  <tr>
+    <td class="c num"><div class="pin">${i+1}</div></td>
+    <td class="addr">${c.address}</td>
+    <td data-l="Status"><span class="status ${cls[c.status]}">${c.status}${c.date ? " " + c.date : ""}</span></td>
+    <td class="n" data-l="DOM">${fmtN(c.dom)}</td>
+    <td class="n" data-l="Price">${fmt$(c.price)}</td>
+    <td class="n" data-l="Beds / baths">${c.beds} / ${c.baths}</td>
+    <td class="n" data-l="Above-grade sq ft">${fmtN(c.ag)}</td>
+    <td class="n" data-l="Total sq ft">${fmtN(c.total)}</td>
+  </tr>`).join("");
+
+const map = L.map("map", {scrollWheelZoom:false});
+L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  maxZoom:19, attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+// Pins: subject first so it stays put; comps that land on top of another pin get nudged apart.
+const items = [{lat:SUBJECT.lat, lng:SUBJECT.lng, label:"★", subj:true, pop:`<b>${SUBJECT.address}</b><br>Your home`}]
+  .concat(COMPS.map((c,i) => ({lat:c.lat, lng:c.lng, label:i+1, subj:false,
+    pop:`<b>${i+1}. ${c.address}</b><br>${c.status}${c.date ? " " + c.date : ""} · ${fmt$(c.price)}<br>${c.beds} bd / ${c.baths} ba · ${fmtN(c.ag)} sq ft above grade`})));
+items.forEach(it => {
+  it.marker = L.marker([it.lat,it.lng], {zIndexOffset: it.subj ? 1000 : 0}).addTo(map).bindPopup(it.pop);
+});
+function placePins(){
+  const MIN = 32;
+  const placed = [];
+  items.forEach(it => {
+    const base = map.latLngToContainerPoint([it.lat,it.lng]);
+    let off = L.point(0,0);
+    for (let step = 0; step < 24; step++) {
+      const p = base.add(off);
+      if (placed.every(q => p.distanceTo(q) >= MIN)) break;
+      const ang = step * 0.9, r = MIN * (1 + Math.floor(step/7) * 0.6);
+      off = L.point(Math.round(Math.cos(ang)*r), Math.round(Math.sin(ang)*r));
+    }
+    placed.push(base.add(off));
+    const size = it.subj ? 34 : 28;
+    it.marker.setIcon(L.divIcon({className:"", html:`<div class="pin${it.subj?" subj":""}">${it.label}</div>`,
+      iconSize:[size,size], iconAnchor:[size/2 - off.x, size/2 - off.y], popupAnchor:[off.x, off.y - size/2]}));
+  });
+}
+map.fitBounds(items.map(it => [it.lat,it.lng]), {padding:[60,60], maxZoom:19});
+placePins();
+map.on("zoomend", placePins);
+let rz; window.addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() => map.fitBounds(items.map(it => [it.lat,it.lng]), {padding:[60,60], maxZoom:19}), 200); });
+</script>
+</body>
+</html>
